@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterMovie">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Enter the details of the movie you want to register."
+        android:textColor="@color/secondaryTextColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutInputs"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="32dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView">
+
+        <!-- Movie Title -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputLayoutMovieTitle"
+            style="@style/Theme.TextFields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:hint="Movie Title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtInputEditTextMovieTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Year Released -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputLayoutYearReleased"
+            style="@style/Theme.TextFields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:hint="Year Released">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtInputEditTextYearReleased"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <!-- Director -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputLayoutDirector"
+            style="@style/Theme.TextFields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:hint="Director">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtInputEditTextDirector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Cast -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputLayoutCast"
+            style="@style/Theme.TextFields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:hint="Cast">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtInputEditTextCast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:lines="4"
+                android:maxLines="4"
+                android:textAlignment="viewStart"
+                android:gravity="start" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Rating -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputLayoutRating"
+            style="@style/Theme.TextFields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:hint="Rating">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtInputEditTextRating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:maxLines="1"
+                android:maxLength="2"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Review -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputLayoutReview"
+            style="@style/Theme.TextFields"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:hint="Review">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtInputEditTextReview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:lines="5"
+                android:maxLines="5"
+                android:textAlignment="viewStart"
+                android:gravity="start" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/extended_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:contentDescription="Adds movie to database"
+        android:text="ADD MOVIE"
+        app:icon="@drawable/ic_plus_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="handleAddMovie"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

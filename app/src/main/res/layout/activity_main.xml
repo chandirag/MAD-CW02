@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/buttonRegisterMovieActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Register Movie"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="handleRegisterMovie"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonDisplayMoviesActivity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Display Movies"
+        app:layout_constraintEnd_toEndOf="@+id/buttonRegisterMovieActivity"
+        app:layout_constraintStart_toStartOf="@+id/buttonRegisterMovieActivity"
+        app:layout_constraintTop_toBottomOf="@+id/buttonRegisterMovieActivity" />
+
+    <Button
+        android:id="@+id/buttonFavouritesActivity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Favourites"
+        app:layout_constraintEnd_toEndOf="@+id/buttonDisplayMoviesActivity"
+        app:layout_constraintStart_toStartOf="@+id/buttonDisplayMoviesActivity"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDisplayMoviesActivity" />
+
+    <Button
+        android:id="@+id/buttonEditMoviesActivity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Edit Movies"
+        app:layout_constraintEnd_toEndOf="@+id/buttonFavouritesActivity"
+        app:layout_constraintStart_toStartOf="@+id/buttonFavouritesActivity"
+        app:layout_constraintTop_toBottomOf="@+id/buttonFavouritesActivity" />
+
+    <Button
+        android:id="@+id/buttonSearchActivity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Search"
+        app:layout_constraintEnd_toEndOf="@+id/buttonEditMoviesActivity"
+        app:layout_constraintStart_toStartOf="@+id/buttonEditMoviesActivity"
+        app:layout_constraintTop_toBottomOf="@+id/buttonEditMoviesActivity" />
+
+    <Button
+        android:id="@+id/buttonRatingsActivity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Ratings"
+        app:layout_constraintEnd_toEndOf="@+id/buttonSearchActivity"
+        app:layout_constraintStart_toStartOf="@+id/buttonSearchActivity"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSearchActivity" />
+</androidx.constraintlayout.widget.ConstraintLayout>
