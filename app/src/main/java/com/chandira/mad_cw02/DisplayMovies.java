@@ -24,9 +24,6 @@ public class DisplayMovies extends AppCompatActivity {
     ArrayList<String> movies;
     ArrayList<String> sortedMovies;
     ArrayList<String> checkedMovies;
-    ArrayList<Boolean> movieFavouriteStatus;
-    String[] strings = {"Moon", "Saturn", "Earth", "Apple", "Banana", "Movie1", "Movie2", "Movie3",
-            "Movie4", "Movie1", "Movie2", "Movie3", "Movie4", "Movie1", "Movie2", "Movie3", "Movie4", "Movie1", "Movie2", "Movie3", "Movie4"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,19 +38,33 @@ public class DisplayMovies extends AppCompatActivity {
         db = new DBHelper(this);
         retrieveMovieData();
 
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, sortedMovies);
-        listView.setAdapter(adapter);
+
     }
 
     public void retrieveMovieData() {
         Cursor data = db.getData();
 
+        // Iterate over all records and add the movie name to the ArrayList 'sortedMovies'
         while(data.moveToNext()) {
             String movieTitle = data.getString(1);
-            movies.add(movieTitle);
+//            movies.add(movieTitle);
             sortedMovies.add(movieTitle);
         }
         Collections.sort(sortedMovies);
+
+        // Set sorted movies list as the list view adapter
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, sortedMovies);
+        listView.setAdapter(adapter);
+
+        for(int i = 0; i < listView.getCount(); i++) {
+            Cursor movie = db.getRecordWithTitle((String) listView.getItemAtPosition(i));
+            int favouriteChecked = movie.getInt(7);
+            if (favouriteChecked == 1) {
+                listView.setItemChecked(i, true);
+            } else if (favouriteChecked == 0) {
+                listView.setItemChecked(i, false);
+            }
+        }
     }
 
 
@@ -72,17 +83,16 @@ public class DisplayMovies extends AppCompatActivity {
             }
         }
 
-        for(String selectedItem: checkedMovies) {
-//            Cursor selectedRecord = db.getRecordWithTitle(selectedItem);
-//            if (selectedRecord.getCount() != 0) {
-//                String databaseIDOfSelectedItem = String.valueOf(selectedRecord.getString(0));
-//                db.updateIsFavouriteStatusOfMovie(Integer.parseInt(databaseIDOfSelectedItem), true);
-//            }
-            int databaseIdOfSelectedItem = db.getRecordWithTitle(selectedItem);
-            if (databaseIdOfSelectedItem == -1)
-                System.out.println("Some shit isn't working");
-            else
-                db.updateIsFavouriteStatusOfMovie(databaseIdOfSelectedItem, true);
+        for(int i = 0; i <listView.getCount(); i++) {
+            if(listView.isItemChecked(i)) {
+                Cursor checkedItem = db.getRecordWithTitle((String) listView.getItemAtPosition(i));
+                int _id = checkedItem.getInt(0);
+                db.updateIsFavouriteStatusOfMovie(_id, true);
+            } else if (!listView.isItemChecked(i)) {
+                Cursor uncheckedItem = db.getRecordWithTitle((String) listView.getItemAtPosition(i));
+                int _id = uncheckedItem.getInt(0);
+                db.updateIsFavouriteStatusOfMovie(_id, false);
+            }
         }
 
         Toast.makeText(this, itemSelected, Toast.LENGTH_SHORT).show();

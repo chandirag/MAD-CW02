@@ -74,14 +74,13 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public int getRecordWithTitle(String movieTitle) {
+    public Cursor getRecordWithTitle(String movieTitle) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + MOVIE_TABLE_NAME + " WHERE " + MOVIE_TITLE + " = ?", new String[] {String.valueOf(movieTitle)});
         if (cursor.moveToFirst()) {
-            return cursor.getInt(0);
+            return cursor;
         }
-        return -1;
-//        return cursor;
+        return null;
     }
 
     public boolean updateIsFavouriteStatusOfMovie(int _id, boolean isFavourite) {
