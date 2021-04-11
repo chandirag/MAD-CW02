@@ -30,7 +30,7 @@
                 android:value="com.chandira.mad_cw02.MainActivity" />
         </activity>
 
-
+        <!-- Display Movies -->
         <activity
             android:name=".DisplayMovies"
             android:label="Display Movies"
@@ -40,5 +40,15 @@
                 android:value="com.chandira.mad_cw02.MainActivity" />
         </activity>
 
+        <!-- Favourites -->
+        <activity
+            android:name=".Favourites"
+            android:label="Favourites"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.chandira.mad_cw02.MainActivity" />
+        </activity>
     </application>
+
 </manifest>

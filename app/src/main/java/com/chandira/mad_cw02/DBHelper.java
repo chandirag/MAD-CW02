@@ -68,6 +68,12 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public Cursor getFavourites() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + MOVIE_TABLE_NAME + " WHERE " + IS_FAVOURITE + " = 1", null);
+        return cursor;
+    }
+
     public Cursor getRecordWithID(int _id) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + MOVIE_TABLE_NAME + " WHERE " + _ID + " = ?", new String[] {String.valueOf(_id)});
