@@ -45,6 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Edit Movies"
+        android:onClick="handleEditMovies"
         app:layout_constraintEnd_toEndOf="@+id/buttonFavouritesActivity"
         app:layout_constraintStart_toStartOf="@+id/buttonFavouritesActivity"
         app:layout_constraintTop_toBottomOf="@+id/buttonFavouritesActivity" />
@@ -55,6 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Search"
+        android:onClick="handleSearch"
         app:layout_constraintEnd_toEndOf="@+id/buttonEditMoviesActivity"
         app:layout_constraintStart_toStartOf="@+id/buttonEditMoviesActivity"
         app:layout_constraintTop_toBottomOf="@+id/buttonEditMoviesActivity" />
@@ -65,6 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Ratings"
+        android:onClick="handleRatings"
         app:layout_constraintEnd_toEndOf="@+id/buttonSearchActivity"
         app:layout_constraintStart_toStartOf="@+id/buttonSearchActivity"
         app:layout_constraintTop_toBottomOf="@+id/buttonSearchActivity" />

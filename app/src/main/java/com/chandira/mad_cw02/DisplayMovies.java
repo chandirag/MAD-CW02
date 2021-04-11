@@ -37,8 +37,6 @@ public class DisplayMovies extends AppCompatActivity {
 
         db = new DBHelper(this);
         retrieveMovieData();
-
-
     }
 
     public void retrieveMovieData() {

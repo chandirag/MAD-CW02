@@ -62,6 +62,21 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    public boolean updateMovie(int _id, String movieTitle, String movieYearReleased, String movieDirector,
+                               String movieCast, String movieRating, String movieReview, int isFavourite) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(MOVIE_TITLE, movieTitle);
+        contentValues.put(YEAR_RELEASED, movieYearReleased);
+        contentValues.put(DIRECTOR, movieDirector);
+        contentValues.put(CAST, movieCast);
+        contentValues.put(RATING, movieRating);
+        contentValues.put(REVIEW, movieReview);
+        contentValues.put(IS_FAVOURITE, isFavourite);
+        db.update(MOVIE_TABLE_NAME, contentValues, " " + _ID + " = ?", new String[] {String.valueOf(_id)});
+        return true;
+    }
+
     public Cursor getData() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + MOVIE_TABLE_NAME, null);

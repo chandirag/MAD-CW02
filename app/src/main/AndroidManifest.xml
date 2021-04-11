@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MADCW02">
 
-
         <!-- Home Screen -->
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -18,9 +17,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Register Movie -->
+        </activity> <!-- Register Movie -->
         <activity
             android:name=".RegisterMovie"
             android:label="Register Movie"
@@ -28,9 +25,7 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.chandira.mad_cw02.MainActivity" />
-        </activity>
-
-        <!-- Display Movies -->
+        </activity> <!-- Display Movies -->
         <activity
             android:name=".DisplayMovies"
             android:label="Display Movies"
@@ -38,9 +33,7 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.chandira.mad_cw02.MainActivity" />
-        </activity>
-
-        <!-- Favourites -->
+        </activity> <!-- Favourites -->
         <activity
             android:name=".Favourites"
             android:label="Favourites"
@@ -48,6 +41,26 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.chandira.mad_cw02.MainActivity" />
+        </activity>
+
+        <!-- Edit Movies -->
+        <activity
+            android:name=".EditMovies"
+            android:label="Edit Movies"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.chandira.mad_cw02.MainActivity" />
+        </activity>
+
+        <!-- Edit Movie Details -->
+        <activity
+            android:name=".EditMovieDetails"
+            android:parentActivityName=".EditMovies">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.chandira.mad_cw02.EditMovies" />
+
         </activity>
     </application>
 
