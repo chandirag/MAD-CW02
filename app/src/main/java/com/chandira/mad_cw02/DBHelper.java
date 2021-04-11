@@ -68,4 +68,34 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public Cursor getRecordWithID(int _id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + MOVIE_TABLE_NAME + " WHERE " + _ID + " = ?", new String[] {String.valueOf(_id)});
+        return cursor;
+    }
+
+    public int getRecordWithTitle(String movieTitle) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + MOVIE_TABLE_NAME + " WHERE " + MOVIE_TITLE + " = ?", new String[] {String.valueOf(movieTitle)});
+        if (cursor.moveToFirst()) {
+            return cursor.getInt(0);
+        }
+        return -1;
+//        return cursor;
+    }
+
+    public boolean updateIsFavouriteStatusOfMovie(int _id, boolean isFavourite) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        if (isFavourite) {
+            contentValues.put(IS_FAVOURITE, 1);
+        } else {
+            contentValues.put(IS_FAVOURITE, 0);
+        }
+
+        db.update(MOVIE_TABLE_NAME, contentValues, _ID + " = ?", new String[] {String.valueOf(_id)});
+        return true;
+    }
+
 }
