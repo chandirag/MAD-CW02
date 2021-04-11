@@ -12,11 +12,12 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.Objects;
+
 public class RegisterMovie extends AppCompatActivity {
     TextInputLayout movieTitleTextInput, movieDirectorTextInput, movieCastTextInput, movieReviewTextInput;
     TextInputLayout movieYearReleasedTextInput, movieRatingTextInput;
-    String movieTitle, director, cast, review;
-    int yearReleased, rating;
+    String movieTitle, director, cast, review, yearReleased, rating;
     DBHelper db;
 
 
@@ -51,7 +52,7 @@ public class RegisterMovie extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                yearReleased = Integer.parseInt(s.toString());
+                yearReleased = s.toString();
             }
         });
 
@@ -92,7 +93,7 @@ public class RegisterMovie extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                rating = Integer.parseInt(s.toString());
+                rating = s.toString();
             }
         });
 
@@ -113,14 +114,13 @@ public class RegisterMovie extends AppCompatActivity {
     }
 
     public void handleAddMovie(View view) {
-
-        db.insertMovie(movieTitle, String.valueOf(yearReleased), director, cast, String.valueOf(rating), review, 0);
+        db.insertMovie(movieTitle, yearReleased, director, cast, rating, review, 0);
 
         Toast toast = Toast.makeText(this, movieTitle + " added to database!", Toast.LENGTH_SHORT);
         toast.show();
 
-        emptyTextFields(movieTitleTextInput, movieDirectorTextInput, movieCastTextInput, movieReviewTextInput,
-                movieYearReleasedTextInput, movieRatingTextInput);
+        emptyTextFields(movieTitleTextInput, movieDirectorTextInput, movieCastTextInput,
+                movieReviewTextInput, movieYearReleasedTextInput, movieRatingTextInput);
     }
 
 
@@ -130,7 +130,7 @@ public class RegisterMovie extends AppCompatActivity {
     }
 
     private static void emptyTextFields(TextInputLayout... textInputLayouts) {
-        for (TextInputLayout textInputLayout: textInputLayouts)
+        for(TextInputLayout textInputLayout: textInputLayouts)
             textInputLayout.getEditText().setText("");
     }
 }

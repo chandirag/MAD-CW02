@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -41,21 +42,31 @@ public class DisplayMovies extends AppCompatActivity {
 
     public void retrieveMovieData() {
         Cursor data = db.getData();
-        if (data.getCount() == 0) {
-            System.out.println("Error!");
-        } else {
-            while(data.moveToNext()) {
-                String movieTitle = data.getString(1);
-                movies.add(movieTitle);
+//        if (data.getCount() == 0) {
+//            System.out.println("Error!");
+//        } else {
+//            while(data.moveToNext()) {
+//                String movieTitle = data.getString(1);
+//                movies.add(movieTitle);
+//
+//            }
+//            Collections.sort(movies);
+//        }
+        while(data.moveToNext()) {
+            String movieTitle = data.getString(1);
+            movies.add(movieTitle);
 
-            }
-            Collections.sort(movies);
         }
+        Collections.sort(movies);
     }
 
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         return super.onOptionsItemSelected(item);
+    }
+
+    public void handleAddToFavourite(View view) {
+
     }
 }

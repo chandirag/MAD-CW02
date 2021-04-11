@@ -43,5 +43,20 @@
 
     </RelativeLayout>
 
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/add_to_favourite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:contentDescription="Marks selected movies as fovourite"
+        android:text="ADD TO FAVOURITE"
+        app:icon="@drawable/ic_plus_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="handleAddToFavourite"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
