@@ -22,6 +22,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:onClick="handleDisplayMovies"
         android:text="Display Movies"
         app:layout_constraintEnd_toEndOf="@+id/buttonRegisterMovieActivity"
         app:layout_constraintStart_toStartOf="@+id/buttonRegisterMovieActivity"
