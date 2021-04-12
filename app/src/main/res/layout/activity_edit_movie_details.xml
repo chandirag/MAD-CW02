@@ -15,8 +15,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Update Movie"
         android:onClick="handleUpdate"
+        android:text="Update Movie"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -102,13 +102,12 @@
                 android:id="@+id/txtInputEditTextCast_EditMovieDetails"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="start"
                 android:inputType="textMultiLine"
-                android:lines="4"
-                android:maxLines="4"
-                android:textAlignment="viewStart"
-                android:gravity="start" />
+                android:lines="3"
+                android:maxLines="3"
+                android:textAlignment="viewStart" />
         </com.google.android.material.textfield.TextInputLayout>
-
 
 
         <!-- Review -->
@@ -124,13 +123,67 @@
                 android:id="@+id/txtInputEditTextReview_EditMovieDetails"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="start"
                 android:inputType="textMultiLine"
-                android:lines="5"
-                android:maxLines="5"
-                android:textAlignment="viewStart"
-                android:gravity="start" />
+                android:lines="4"
+                android:maxLines="4"
+                android:textAlignment="viewStart" />
         </com.google.android.material.textfield.TextInputLayout>
 
+
+        <!-- Rating -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/roboto"
+            android:text="Rating:"
+            android:textColor="#5b5b5b"
+            android:textSize="14sp">
+        </TextView>
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="@android:style/Widget.DeviceDefault.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="-10dp"
+            android:layout_marginLeft="-10dp"
+            android:layout_marginTop="10dp"
+            android:isIndicator="false"
+            android:layout_marginBottom="20dp"
+            android:max="5"
+            android:numStars="10"
+            android:rating="9"
+            android:scaleX=".9"
+            android:scaleY=".9"
+            android:stepSize="1" />
+
+        <!--  Favourite Status -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/roboto"
+                android:text="Favourite:"
+                android:textColor="#5b5b5b"
+                android:textSize="14sp"
+                android:layout_weight="0.75">
+            </TextView>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/isFavouriteSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"/>
+
+
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

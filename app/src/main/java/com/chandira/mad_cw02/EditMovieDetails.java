@@ -1,6 +1,7 @@
 package com.chandira.mad_cw02;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 import android.database.Cursor;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +22,8 @@ public class EditMovieDetails extends AppCompatActivity {
     TextInputLayout movieYearReleasedTextInput, movieRatingTextInput;
     String movieTitle, director, cast, review, yearReleased, rating;
     int isFavourite, _id;
+    SwitchCompat isFavouriteSwitch;
+    RatingBar ratingBar;
     DBHelper db;
 
     @Override
@@ -34,6 +38,8 @@ public class EditMovieDetails extends AppCompatActivity {
 //        this.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_close_24);
 
         db = new DBHelper(this);
+        ratingBar = findViewById(R.id.ratingBar);
+        isFavouriteSwitch = findViewById(R.id.isFavouriteSwitch);
 
         // Title
         movieTitleTextInput = findViewById(R.id.txtInputLayoutMovieTitle_EditMovieDetails);
@@ -125,15 +131,29 @@ public class EditMovieDetails extends AppCompatActivity {
         cast = data.getString(4);
         rating = data.getString(5);
         review = data.getString(6);
+        isFavourite = data.getInt(7);
 
         movieTitleTextInput.getEditText().setText(movieTitle);
         movieYearReleasedTextInput.getEditText().setText(yearReleased);
         movieDirectorTextInput.getEditText().setText(director);
         movieCastTextInput.getEditText().setText(cast);
         movieReviewTextInput.getEditText().setText(review);
+        ratingBar.setRating(Float.parseFloat(rating));
+        if (isFavourite == 1) {
+            isFavouriteSwitch.setChecked(true);
+        } else if (isFavourite == 0) {
+            isFavouriteSwitch.setChecked(false);
+        }
     }
 
     public void handleUpdate(View view) {
+        int ratingInt = (int) ratingBar.getRating();
+        rating = String.valueOf(ratingInt);
+        if (isFavouriteSwitch.isChecked()) {
+            isFavourite = 1;
+        } else if (!isFavouriteSwitch.isChecked()) {
+            isFavourite = 0;
+        }
         db.updateMovie(_id, movieTitle, yearReleased, director, cast, rating, review, isFavourite);
         finish();
     }

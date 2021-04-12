@@ -62,6 +62,9 @@
                 android:value="com.chandira.mad_cw02.EditMovies" />
 
         </activity>
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

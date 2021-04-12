@@ -18,7 +18,7 @@
         android:fontFamily="@font/poppins_medium"
         android:text="Movies that are registered in the database are shown below. Favourite movies are ticked. You can modify the list at any time and click ‘Add to favourite’ to save changes."
         android:textColor="@color/secondaryTextColor"
-        android:textSize="12sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
