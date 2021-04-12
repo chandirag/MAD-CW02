@@ -9,6 +9,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,7 +23,7 @@ public class EditMovieDetails extends AppCompatActivity {
     TextInputLayout movieYearReleasedTextInput, movieRatingTextInput;
     String movieTitle, director, cast, review, yearReleased, rating;
     int isFavourite, _id;
-    SwitchCompat isFavouriteSwitch;
+    CheckBox isFavouriteCheckBox;
     RatingBar ratingBar;
     DBHelper db;
 
@@ -39,7 +40,7 @@ public class EditMovieDetails extends AppCompatActivity {
 
         db = new DBHelper(this);
         ratingBar = findViewById(R.id.ratingBar);
-        isFavouriteSwitch = findViewById(R.id.isFavouriteSwitch);
+        isFavouriteCheckBox = findViewById(R.id.isFavouriteCheckBox);
 
         // Title
         movieTitleTextInput = findViewById(R.id.txtInputLayoutMovieTitle_EditMovieDetails);
@@ -140,18 +141,18 @@ public class EditMovieDetails extends AppCompatActivity {
         movieReviewTextInput.getEditText().setText(review);
         ratingBar.setRating(Float.parseFloat(rating));
         if (isFavourite == 1) {
-            isFavouriteSwitch.setChecked(true);
+            isFavouriteCheckBox.setChecked(true);
         } else if (isFavourite == 0) {
-            isFavouriteSwitch.setChecked(false);
+            isFavouriteCheckBox.setChecked(false);
         }
     }
 
     public void handleUpdate(View view) {
         int ratingInt = (int) ratingBar.getRating();
         rating = String.valueOf(ratingInt);
-        if (isFavouriteSwitch.isChecked()) {
+        if (isFavouriteCheckBox.isChecked()) {
             isFavourite = 1;
-        } else if (!isFavouriteSwitch.isChecked()) {
+        } else if (!isFavouriteCheckBox.isChecked()) {
             isFavourite = 0;
         }
         db.updateMovie(_id, movieTitle, yearReleased, director, cast, rating, review, isFavourite);
