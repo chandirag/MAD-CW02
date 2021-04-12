@@ -35,8 +35,8 @@ public class EditMovieDetails extends AppCompatActivity {
         // Set Activity Title as the Movie Name
         String itemName = getIntent().getStringExtra("listItem");
         setTitle(itemName);
-//        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        this.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_close_24);
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        this.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_close_24);
 
         db = new DBHelper(this);
         ratingBar = findViewById(R.id.ratingBar);

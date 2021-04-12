@@ -6,13 +6,9 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-
-import java.util.Objects;
 
 public class RegisterMovie extends AppCompatActivity {
     TextInputLayout movieTitleTextInput, movieDirectorTextInput, movieCastTextInput, movieReviewTextInput;
@@ -29,7 +25,7 @@ public class RegisterMovie extends AppCompatActivity {
         db = new DBHelper(this);
 
         // Title
-        movieTitleTextInput = findViewById(R.id.txtInputLayoutMovieTitle);
+        movieTitleTextInput = findViewById(R.id.txtInputLayoutSearch);
         movieTitleTextInput.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }

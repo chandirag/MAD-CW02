@@ -41,9 +41,7 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.chandira.mad_cw02.MainActivity" />
-        </activity>
-
-        <!-- Edit Movies -->
+        </activity> <!-- Edit Movies -->
         <activity
             android:name=".EditMovies"
             android:label="Edit Movies"
@@ -52,7 +50,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.chandira.mad_cw02.MainActivity" />
         </activity>
-
         <!-- Edit Movie Details -->
         <activity
             android:name=".EditMovieDetails"
@@ -60,8 +57,18 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.chandira.mad_cw02.EditMovies" />
-
         </activity>
+
+        <!-- Search -->
+        <activity
+            android:name=".Search"
+            android:label="Search"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.chandira.mad_cw02.MainActivity" />
+        </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

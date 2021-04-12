@@ -118,4 +118,21 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    public Cursor searchMoviesWithTitleLike(String query) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + MOVIE_TABLE_NAME + " WHERE " + MOVIE_TITLE + " LIKE " + query, null);
+        return cursor;
+    }
+
+    public Cursor searchMoviesWithDirectorLike(String query) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + MOVIE_TABLE_NAME + " WHERE " + DIRECTOR + " LIKE " + query, null);
+        return cursor;
+    }
+
+    public Cursor searchMoviesWithCastLike(String query) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + MOVIE_TABLE_NAME + " WHERE " + CAST + " LIKE " + query, null);
+        return cursor;
+    }
 }
