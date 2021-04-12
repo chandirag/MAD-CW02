@@ -8,6 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.MADCW02">
 
         <!-- Home Screen -->
@@ -17,7 +18,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- Register Movie -->
+        </activity>
+
+        <!-- Register Movie -->
         <activity
             android:name=".RegisterMovie"
             android:label="Register Movie"
@@ -25,7 +28,9 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.chandira.mad_cw02.MainActivity" />
-        </activity> <!-- Display Movies -->
+        </activity>
+
+        <!-- Display Movies -->
         <activity
             android:name=".DisplayMovies"
             android:label="Display Movies"
@@ -33,7 +38,9 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.chandira.mad_cw02.MainActivity" />
-        </activity> <!-- Favourites -->
+        </activity>
+
+        <!-- Favourites -->
         <activity
             android:name=".Favourites"
             android:label="Favourites"
@@ -41,7 +48,9 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.chandira.mad_cw02.MainActivity" />
-        </activity> <!-- Edit Movies -->
+        </activity>
+
+        <!-- Edit Movies -->
         <activity
             android:name=".EditMovies"
             android:label="Edit Movies"
@@ -50,6 +59,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.chandira.mad_cw02.MainActivity" />
         </activity>
+
         <!-- Edit Movie Details -->
         <activity
             android:name=".EditMovieDetails"
@@ -69,9 +79,30 @@
                 android:value="com.chandira.mad_cw02.MainActivity" />
         </activity>
 
+        <!-- Rating -->
+        <activity
+            android:name=".Ratings"
+            android:label="Ratings"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.chandira.mad_cw02.MainActivity" />
+        </activity>
+
+        <!-- IMDB Results -->
+        <activity
+            android:name=".ImdbResults"
+            android:label="IMDB Results"
+            android:parentActivityName=".Ratings">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.chandira.mad_cw02.Ratings" />
+        </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 </manifest>

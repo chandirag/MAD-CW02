@@ -21,9 +21,7 @@ public class DisplayMovies extends AppCompatActivity {
     DBHelper db;
     ListView listView;
     ArrayAdapter<String> adapter;
-    ArrayList<String> movies;
     ArrayList<String> sortedMovies;
-    ArrayList<String> checkedMovies;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +29,7 @@ public class DisplayMovies extends AppCompatActivity {
         setContentView(R.layout.activity_display_movies);
 
         listView = findViewById(R.id.listView);
-        movies = new ArrayList<>();
         sortedMovies = new ArrayList<>();
-        checkedMovies = new ArrayList<>();
 
         db = new DBHelper(this);
         retrieveMovieData();
@@ -45,7 +41,6 @@ public class DisplayMovies extends AppCompatActivity {
         // Iterate over all records and add the movie name to the ArrayList 'sortedMovies'
         while(data.moveToNext()) {
             String movieTitle = data.getString(1);
-//            movies.add(movieTitle);
             sortedMovies.add(movieTitle);
         }
         Collections.sort(sortedMovies);
@@ -72,15 +67,6 @@ public class DisplayMovies extends AppCompatActivity {
     }
 
     public void handleAddToFavourite(View view) {
-        String itemSelected = "Selected items: \n";
-
-        for(int i = 0; i < listView.getCount(); i++) {
-            if (listView.isItemChecked(i)) {
-                checkedMovies.add((String) listView.getItemAtPosition(i));
-                itemSelected += listView.getItemAtPosition(i) + "\n";
-            }
-        }
-
         for(int i = 0; i <listView.getCount(); i++) {
             if(listView.isItemChecked(i)) {
                 Cursor checkedItem = db.getRecordWithTitle((String) listView.getItemAtPosition(i));
