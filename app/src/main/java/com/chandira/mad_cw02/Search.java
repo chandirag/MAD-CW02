@@ -35,6 +35,10 @@ public class Search extends AppCompatActivity {
     ArrayList<String> moviesMatchingDirector;
     ArrayList<String> moviesMatchingCast;
 
+    LinearLayout linearLayout1;
+    LinearLayout linearLayout2;
+    LinearLayout linearLayout3;
+
     TextView titleSectionHeader, directorSectionHeader, castSectionHeader;
 
     TextInputLayout searchInput;
@@ -56,6 +60,10 @@ public class Search extends AppCompatActivity {
         titleSectionHeader = findViewById(R.id.textViewTitleSection);
         directorSectionHeader = findViewById(R.id.textViewDirectorSection);
         castSectionHeader = findViewById(R.id.textViewCastSection);
+
+        linearLayout1 = findViewById(R.id.linearLayout1);
+        linearLayout2 = findViewById(R.id.linearLayout2);
+        linearLayout3 = findViewById(R.id.linearLayout3);
 
         db = new DBHelper(this);
 
@@ -124,7 +132,11 @@ public class Search extends AppCompatActivity {
 
         titleSectionHeader.setVisibility(View.GONE);
         directorSectionHeader.setVisibility(View.GONE);
-        castSectionHeader.setVisibility(View.INVISIBLE);
+        castSectionHeader.setVisibility(View.GONE);
+
+        linearLayout1.setVisibility(View.GONE);
+        linearLayout2.setVisibility(View.GONE);
+        linearLayout3.setVisibility(View.GONE);
 
         // If text field is empty reset ListView
         if (searchQuery.trim().equalsIgnoreCase("")) {
@@ -145,8 +157,7 @@ public class Search extends AppCompatActivity {
                 Collections.sort(moviesMatchingTitle);
                 titleSectionHeader.setText("Results with '" + searchQuery + "' in the title:");
                 titleSectionHeader.setVisibility(View.VISIBLE);
-                LinearLayout linearLayout = findViewById(R.id.linearLayout1);
-                linearLayout.setVisibility(View.VISIBLE);
+                linearLayout1.setVisibility(View.VISIBLE);
             }
 
 
@@ -158,8 +169,7 @@ public class Search extends AppCompatActivity {
                 Collections.sort(moviesMatchingDirector);
                 directorSectionHeader.setText("Results with '" + searchQuery + "' in the Director field:");
                 directorSectionHeader.setVisibility(View.VISIBLE);
-                LinearLayout linearLayout = findViewById(R.id.linearLayout2);
-                linearLayout.setVisibility(View.VISIBLE);
+                linearLayout2.setVisibility(View.VISIBLE);
             }
 
             // If there are matching data with the cast in the database
@@ -170,8 +180,7 @@ public class Search extends AppCompatActivity {
                 Collections.sort(moviesMatchingCast);
                 castSectionHeader.setText("Results with '" + searchQuery + "' in the Cast:");
                 castSectionHeader.setVisibility(View.VISIBLE);
-                LinearLayout linearLayout = findViewById(R.id.linearLayout3);
-                linearLayout.setVisibility(View.VISIBLE);
+                linearLayout3.setVisibility(View.VISIBLE);
             }
         }
         initialize();
