@@ -79,4 +79,60 @@ public class NetworkUtils {
         return moviesJSONString;
     }
 
+    static String getRatingInfo(String queryString) {
+        HttpURLConnection urlConnection = null;
+        BufferedReader reader = null;
+        String ratingsJSONString = null;
+
+        try {
+
+            String uriToBeParsed = IMDB_BASE_URL + RATINGS_ENDPOINT + "/" + API_KEY + "/" + queryString;
+            Uri uri = Uri.parse(uriToBeParsed);
+            URL requestURL = new URL(uri.toString());
+
+            urlConnection = (HttpURLConnection) requestURL.openConnection();
+            urlConnection.setRequestMethod("GET");
+            urlConnection.connect();
+
+            // Get the input stream
+            InputStream inputStream = urlConnection.getInputStream();
+
+            // Create a buffered reader from that input stream
+            reader = new BufferedReader(new InputStreamReader(inputStream));
+
+            // Use a StringBuilder to hold the incoming response
+            StringBuilder builder = new StringBuilder();
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                builder.append(line);
+                builder.append("\n");
+            }
+            if(builder.length() == 0) {
+                // If stream is empty do not parse
+                return null;
+            }
+            ratingsJSONString = builder.toString();
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (urlConnection != null) {
+                urlConnection.disconnect();
+            }
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        Log.d(LOG_TAG, ratingsJSONString);
+        return ratingsJSONString;
+    }
+
 }
