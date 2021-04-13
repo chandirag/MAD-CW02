@@ -8,67 +8,224 @@
 
     <Button
         android:id="@+id/buttonRegisterMovieActivity"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Register Movie"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/secondaryColor"
+        android:fontFamily="@font/poppins_bold"
         android:onClick="handleRegisterMovie"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:paddingLeft="20dp"
+        android:paddingTop="5dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="5dp"
+        android:text="Register Movie"
+        android:textAllCaps="false"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDisplayMoviesActivity"
+        app:layout_constraintEnd_toEndOf="@+id/buttonDisplayMoviesActivity"
+        app:layout_constraintStart_toStartOf="@+id/buttonDisplayMoviesActivity" />
 
     <Button
         android:id="@+id/buttonDisplayMoviesActivity"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/secondaryColor"
+        android:fontFamily="@font/poppins_bold"
         android:onClick="handleDisplayMovies"
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="5dp"
         android:text="Display Movies"
-        app:layout_constraintEnd_toEndOf="@+id/buttonRegisterMovieActivity"
-        app:layout_constraintStart_toStartOf="@+id/buttonRegisterMovieActivity"
-        app:layout_constraintTop_toBottomOf="@+id/buttonRegisterMovieActivity" />
+        android:textAllCaps="false"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonFavouritesActivity"
+        app:layout_constraintEnd_toEndOf="@+id/buttonFavouritesActivity"
+        app:layout_constraintStart_toStartOf="@+id/buttonFavouritesActivity" />
 
     <Button
         android:id="@+id/buttonFavouritesActivity"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Favourites"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/secondaryColor"
+        android:fontFamily="@font/poppins_bold"
         android:onClick="handleDisplayFavourites"
-        app:layout_constraintEnd_toEndOf="@+id/buttonDisplayMoviesActivity"
-        app:layout_constraintStart_toStartOf="@+id/buttonDisplayMoviesActivity"
-        app:layout_constraintTop_toBottomOf="@+id/buttonDisplayMoviesActivity" />
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="5dp"
+        android:text="Favourites"
+        android:textAllCaps="false"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonEditMoviesActivity"
+        app:layout_constraintEnd_toEndOf="@+id/buttonEditMoviesActivity"
+        app:layout_constraintStart_toStartOf="@+id/buttonEditMoviesActivity" />
 
     <Button
         android:id="@+id/buttonEditMoviesActivity"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Edit Movies"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/secondaryColor"
+        android:fontFamily="@font/poppins_bold"
         android:onClick="handleEditMovies"
-        app:layout_constraintEnd_toEndOf="@+id/buttonFavouritesActivity"
-        app:layout_constraintStart_toStartOf="@+id/buttonFavouritesActivity"
-        app:layout_constraintTop_toBottomOf="@+id/buttonFavouritesActivity" />
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="5dp"
+        android:text="Edit Movies"
+        android:textAllCaps="false"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSearchActivity"
+        app:layout_constraintEnd_toEndOf="@+id/buttonSearchActivity"
+        app:layout_constraintStart_toStartOf="@+id/buttonSearchActivity" />
 
     <Button
         android:id="@+id/buttonSearchActivity"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Search"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/secondaryColor"
+        android:fontFamily="@font/poppins_bold"
         android:onClick="handleSearch"
-        app:layout_constraintEnd_toEndOf="@+id/buttonEditMoviesActivity"
-        app:layout_constraintStart_toStartOf="@+id/buttonEditMoviesActivity"
-        app:layout_constraintTop_toBottomOf="@+id/buttonEditMoviesActivity" />
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="5dp"
+        android:text="Search"
+        android:textAllCaps="false"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonRatingsActivity"
+        app:layout_constraintEnd_toEndOf="@+id/buttonRatingsActivity"
+        app:layout_constraintStart_toStartOf="@+id/buttonRatingsActivity" />
 
     <Button
         android:id="@+id/buttonRatingsActivity"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Ratings"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/secondaryColor"
+        android:fontFamily="@font/poppins_bold"
         android:onClick="handleRatings"
-        app:layout_constraintEnd_toEndOf="@+id/buttonSearchActivity"
-        app:layout_constraintStart_toStartOf="@+id/buttonSearchActivity"
-        app:layout_constraintTop_toBottomOf="@+id/buttonSearchActivity" />
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="5dp"
+        android:text="Ratings"
+        android:textAllCaps="false"
+        android:textColor="@color/secondaryTextColor"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView3" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="191dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonRegisterMovieActivity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/shapeableImageView"
+        android:layout_width="140dp"
+        android:layout_height="211dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonEditMoviesActivity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:shapeAppearanceOverlay="@style/roundedCornersImageView"
+        app:srcCompat="@drawable/poster_12" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/shapeableImageView2"
+        android:layout_width="140dp"
+        android:layout_height="211dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/shapeableImageView"
+        app:layout_constraintEnd_toStartOf="@+id/buttonRatingsActivity"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:shapeAppearanceOverlay="@style/roundedCornersImageView"
+        app:srcCompat="@drawable/poster_13" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="140dp"
+        android:layout_height="211dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/shapeableImageView2"
+        app:layout_constraintEnd_toStartOf="@+id/buttonRatingsActivity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:shapeAppearanceOverlay="@style/roundedCornersImageView"
+        app:srcCompat="@drawable/poster_8" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/shapeableImageView3"
+        android:layout_width="140dp"
+        android:layout_height="211dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintStart_toEndOf="@+id/shapeableImageView2"
+        app:shapeAppearanceOverlay="@style/roundedCornersImageView"
+        app:srcCompat="@drawable/poster_2" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="140dp"
+        android:layout_height="211dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shapeableImageView"
+        app:shapeAppearanceOverlay="@style/roundedCornersImageView"
+        app:srcCompat="@drawable/poster_10" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/shapeableImageView4"
+        android:layout_width="140dp"
+        android:layout_height="211dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="85dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintStart_toEndOf="@+id/shapeableImageView3"
+        app:shapeAppearanceOverlay="@style/roundedCornersImageView"
+        app:srcCompat="@drawable/poster_4" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="140dp"
+        android:layout_height="211dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/shapeableImageView4"
+        app:layout_constraintStart_toEndOf="@+id/shapeableImageView3"
+        app:shapeAppearanceOverlay="@style/roundedCornersImageView"
+        app:srcCompat="@drawable/poster_7" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
