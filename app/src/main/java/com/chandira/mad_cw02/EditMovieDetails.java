@@ -16,16 +16,18 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.Calendar;
 import java.util.Collections;
 
 public class EditMovieDetails extends AppCompatActivity {
     TextInputLayout movieTitleTextInput, movieDirectorTextInput, movieCastTextInput, movieReviewTextInput;
-    TextInputLayout movieYearReleasedTextInput, movieRatingTextInput;
+    TextInputLayout movieYearReleasedTextInput;
     String movieTitle, director, cast, review, yearReleased, rating;
     int isFavourite, _id;
     CheckBox isFavouriteCheckBox;
     RatingBar ratingBar;
     DBHelper db;
+    int MIN_YEAR = Constants.MIN_YEAR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,14 +150,44 @@ public class EditMovieDetails extends AppCompatActivity {
     }
 
     public void handleUpdate(View view) {
-        int ratingInt = (int) ratingBar.getRating();
-        rating = String.valueOf(ratingInt);
-        if (isFavouriteCheckBox.isChecked()) {
-            isFavourite = 1;
-        } else if (!isFavouriteCheckBox.isChecked()) {
-            isFavourite = 0;
+        if (isValid()) {
+            int ratingInt = (int) ratingBar.getRating();
+            rating = String.valueOf(ratingInt);
+            if (isFavouriteCheckBox.isChecked()) {
+                isFavourite = 1;
+            } else if (!isFavouriteCheckBox.isChecked()) {
+                isFavourite = 0;
+            }
+            db.updateMovie(_id, movieTitle, yearReleased, director, cast, rating, review, isFavourite);
+            finish();
         }
-        db.updateMovie(_id, movieTitle, yearReleased, director, cast, rating, review, isFavourite);
-        finish();
+    }
+
+    private boolean isValid() {
+        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        boolean isTitleValid, isYearValid = true;
+
+        if (movieTitleTextInput.getEditText().getText().toString().isEmpty()) {
+            movieTitleTextInput.setError("Movie title is required.");
+            isTitleValid = false;
+        } else {
+            movieTitleTextInput.setErrorEnabled(false);
+            isTitleValid = true;
+        }
+
+        if(movieYearReleasedTextInput.getEditText().getText().toString().isEmpty()) {
+            movieYearReleasedTextInput.setError("Year released is required.");
+            isYearValid = false;
+        } else if (Integer.parseInt(movieYearReleasedTextInput.getEditText().getText().toString()) < MIN_YEAR) {
+            movieYearReleasedTextInput.setError("The oldest year you can enter is: " + MIN_YEAR);
+            isYearValid = false;
+        } else if (Integer.parseInt(movieYearReleasedTextInput.getEditText().getText().toString()) > currentYear) {
+            movieYearReleasedTextInput.setError("The latest year you can enter is: " + currentYear);
+            isYearValid = false;
+        } else {
+            movieYearReleasedTextInput.setErrorEnabled(false);
+        }
+
+        return (isTitleValid && isYearValid);
     }
 }

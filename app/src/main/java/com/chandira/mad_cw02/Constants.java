@@ -14,4 +14,7 @@ public interface Constants extends BaseColumns {
     public static final String RATING = "movieRating";
     public static final String REVIEW = "movieReview";
     public static final String IS_FAVOURITE = "isFavourite";
+
+    // Minimum year for dat inputs
+    public static final int MIN_YEAR = 1895;
 }

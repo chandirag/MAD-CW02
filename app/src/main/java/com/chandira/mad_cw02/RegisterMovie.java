@@ -10,11 +10,14 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.Calendar;
+
 public class RegisterMovie extends AppCompatActivity {
     TextInputLayout movieTitleTextInput, movieDirectorTextInput, movieCastTextInput, movieReviewTextInput;
     TextInputLayout movieYearReleasedTextInput, movieRatingTextInput;
     String movieTitle, director, cast, review, yearReleased, rating;
     DBHelper db;
+    int MIN_YEAR = Constants.MIN_YEAR;
 
 
     @Override
@@ -110,23 +113,62 @@ public class RegisterMovie extends AppCompatActivity {
     }
 
     public void handleAddMovie(View view) {
-        db.insertMovie(movieTitle, yearReleased, director, cast, rating, review, 0);
+        if (isValid()) {
+            db.insertMovie(movieTitle, yearReleased, director, cast, rating, review, 0);
 
-        Toast toast = Toast.makeText(this, movieTitle + " added to database!", Toast.LENGTH_SHORT);
-        toast.show();
+            Toast toast = Toast.makeText(this, movieTitle + " added to database!", Toast.LENGTH_SHORT);
+            toast.show();
 
-        emptyTextFields(movieTitleTextInput, movieDirectorTextInput, movieCastTextInput,
-                movieReviewTextInput, movieYearReleasedTextInput, movieRatingTextInput);
-    }
-
-
-    private static void emptyStringValues(String... strings) {
-        for(String string: strings)
-            string = "";
+            emptyTextFields(movieTitleTextInput, movieDirectorTextInput, movieCastTextInput,
+                    movieReviewTextInput, movieYearReleasedTextInput, movieRatingTextInput);
+        }
     }
 
     private static void emptyTextFields(TextInputLayout... textInputLayouts) {
         for(TextInputLayout textInputLayout: textInputLayouts)
             textInputLayout.getEditText().setText("");
+    }
+
+    private boolean isValid() {
+        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        boolean isTitleValid, isYearValid, isRatingValid = true;
+
+        if (movieTitleTextInput.getEditText().getText().toString().isEmpty()) {
+            movieTitleTextInput.setError("Movie title is required.");
+            isTitleValid = false;
+        } else {
+            movieTitleTextInput.setErrorEnabled(false);
+            isTitleValid = true;
+        }
+
+        if(movieYearReleasedTextInput.getEditText().getText().toString().isEmpty()) {
+            movieYearReleasedTextInput.setError("Year released is required.");
+            isYearValid = false;
+        } else if (Integer.parseInt(movieYearReleasedTextInput.getEditText().getText().toString()) < MIN_YEAR) {
+            movieYearReleasedTextInput.setError("The oldest year you can enter is: " + MIN_YEAR);
+            isYearValid = false;
+        } else if (Integer.parseInt(movieYearReleasedTextInput.getEditText().getText().toString()) > currentYear) {
+            movieYearReleasedTextInput.setError("The latest year you can enter is: " + currentYear);
+            isYearValid = false;
+        } else {
+            movieYearReleasedTextInput.setErrorEnabled(false);
+            isYearValid = true;
+        }
+
+        if(movieRatingTextInput.getEditText().getText().toString().isEmpty()) {
+            movieRatingTextInput.setError("Rating is required.");
+            isRatingValid = false;
+        } else if (Integer.parseInt(movieRatingTextInput.getEditText().getText().toString()) <= 0) {
+            movieRatingTextInput.setError("The rating should be between 1 & 10.");
+            isRatingValid = false;
+        } else if (Integer.parseInt(movieRatingTextInput.getEditText().getText().toString()) > 10) {
+            movieRatingTextInput.setError("The rating should be between 1 & 10.");
+            isRatingValid = false;
+        } else {
+            movieRatingTextInput.setErrorEnabled(false);
+            isRatingValid = true;
+        }
+
+        return (isTitleValid && isYearValid && isRatingValid);
     }
 }
