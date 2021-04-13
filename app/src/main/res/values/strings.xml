@@ -1,5 +1,40 @@
 <resources>
     <string name="app_name">MAD-CW02</string>
+    <string name="imageNotExistString">Image does not exist!</string>
+    <string name="displayMoviesInstruction">Movies that are registered in the database are shown below. Favourite movies are ticked. You can modify the list at any time and click ‘Add to favourite’ to save changes.</string>
+    <string name="displayMoviesFabDescription">Marks selected movies as favourite</string>
+    <string name="displayMoviesFabText">ADD TO FAVOURITE</string>
+    <string name="update_movie">Update Movie</string>
+    <string name="inputMovieTitle">Movie Title</string>
+    <string name="inputYearReleased">Year Released</string>
+    <string name="inputDirector">Director</string>
+    <string name="inputCast">Cast</string>
+    <string name="inputReview">Review</string>
+    <string name="inputRatingLabel">Rating:</string>
+    <string name="inputFavouriteLabel">Favourite:</string>
+    <string name="editMoviesInstruction">Select a movie to edit.</string>
+    <string name="favouritesInstruction">Favourite movies from the database are shown below. To remove an item un-tick the checkbox and press ‘Save Changes’ to update the list.</string>
+    <string name="favouritesFabDescription">Updates favourites list</string>
+    <string name="favouritesFabText">SAVE CHANGES</string>
+    <string name="imdbResultsMovieTitleColumnTag">Movie Title</string>
+    <string name="loadingText">Loading...</string>
+    <string name="registerMovieButtonText">Register Movie</string>
+    <string name="displayMoviesButtonText">Display Movies</string>
+    <string name="favouritesButtonText">Favourites</string>
+    <string name="editMoviesButtonText">Edit Movies</string>
+    <string name="searchButtonText">Search</string>
+    <string name="ratingsButtonText">Ratings</string>
+    <string name="ratingsInstruction">Select a movie and press \'Find Movie\' to search for similar titles in IMDB.</string>
+    <string name="ratingsFabDescription">Searches the selected movie title in IMDB.</string>
+    <string name="ratingsFabText">FIND MOVIE IN IMDB</string>
+    <string name="registerMovieInstruction">Enter the details of the movie you want to register.</string>
+    <string name="registerMovieFabDescription">Adds movie to database</string>
+    <string name="registerMovieFabText">ADD MOVIE</string>
+    <string name="searchInputHint">Search...</string>
+    <string name="directorSectionHeaderPlaceholderText">Results with [query] matching the \'Director\' field:</string>
+    <string name="castSectionHeaderPlaceholderText">Results with [query] matching the \'Director\' field:</string>
+    <string name="titleSectionHeaderPlaceholderText">Results with [query] in the title:</string>
+    <string name="umptyRecordsUserMessage">Hmm. there doesn\'t seem to be any movies in the database. Try adding one!</string>
     <!-- Strings used for fragments for navigation -->
 
 </resources>

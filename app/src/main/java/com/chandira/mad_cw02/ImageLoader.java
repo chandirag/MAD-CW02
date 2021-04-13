@@ -17,11 +17,11 @@ public class ImageLoader extends AsyncTask<String, Void, Bitmap> {
     }
 
     protected Bitmap doInBackground(String... urls) {
-        String urldisplay = urls[0];
+        String urlDisplay = urls[0];
         Bitmap bitmap = null;
         try {
-            InputStream in = new java.net.URL(urldisplay).openStream();
-            bitmap = BitmapFactory.decodeStream(in);
+            InputStream inputStream = new java.net.URL(urlDisplay).openStream();
+            bitmap = BitmapFactory.decodeStream(inputStream);
         } catch (Exception e) {
             Log.e(LOG_TAG, e.getMessage());
             e.printStackTrace();

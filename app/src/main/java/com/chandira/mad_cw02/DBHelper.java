@@ -7,6 +7,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import kotlin.contracts.Returns;
+
 import static android.provider.BaseColumns._ID;
 import static com.chandira.mad_cw02.Constants.CAST;
 import static com.chandira.mad_cw02.Constants.DIRECTOR;
@@ -104,6 +106,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return null;
     }
 
+    // Update isFavouriteColumnOfRecord
     public boolean updateIsFavouriteStatusOfMovie(int _id, boolean isFavourite) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -118,21 +121,21 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    // Returns records with matching pattern in the title
     public Cursor searchMoviesWithTitleLike(String query) {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + MOVIE_TABLE_NAME + " WHERE " + MOVIE_TITLE + " LIKE " + query, null);
-        return cursor;
+        return db.rawQuery("SELECT * FROM " + MOVIE_TABLE_NAME + " WHERE " + MOVIE_TITLE + " LIKE " + query, null);
     }
 
+    // Returns records with matching pattern in the Director field
     public Cursor searchMoviesWithDirectorLike(String query) {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + MOVIE_TABLE_NAME + " WHERE " + DIRECTOR + " LIKE " + query, null);
-        return cursor;
+        return db.rawQuery("SELECT * FROM " + MOVIE_TABLE_NAME + " WHERE " + DIRECTOR + " LIKE " + query, null);
     }
 
+    // Returns records with matching pattern in the Cast field
     public Cursor searchMoviesWithCastLike(String query) {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + MOVIE_TABLE_NAME + " WHERE " + CAST + " LIKE " + query, null);
-        return cursor;
+        return db.rawQuery("SELECT * FROM " + MOVIE_TABLE_NAME + " WHERE " + CAST + " LIKE " + query, null);
     }
 }

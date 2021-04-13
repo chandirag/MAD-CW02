@@ -55,18 +55,11 @@ public class EditMovies extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                String output = adapter.getItem(position);
-//                Toast.makeText(EditMovies.this, output, Toast.LENGTH_SHORT).show();
-
+                // Start 'Edit Movie Detail' activity
                 Intent intent = new Intent(EditMovies.this, EditMovieDetails.class);
                 intent.putExtra("listItem", (String) listView.getItemAtPosition(position));
                 startActivity(intent);
-//                System.out.println(output + " fuck");
             }
         });
-    }
-
-    public void handleShowEditMenu(View view) {
-        Toast.makeText(this, "Hello World", Toast.LENGTH_SHORT).show();
     }
 }

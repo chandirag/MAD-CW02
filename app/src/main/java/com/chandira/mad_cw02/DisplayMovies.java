@@ -5,12 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -22,6 +22,8 @@ public class DisplayMovies extends AppCompatActivity {
     ListView listView;
     ArrayAdapter<String> adapter;
     ArrayList<String> sortedMovies;
+    ImageView imageView;
+    TextView helperText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +33,20 @@ public class DisplayMovies extends AppCompatActivity {
         listView = findViewById(R.id.listView);
         sortedMovies = new ArrayList<>();
 
+        imageView = findViewById(R.id.helperImage);
+        helperText = findViewById(R.id.textViewEmptyRecords);
+
+        imageView.setVisibility(View.INVISIBLE);
+        helperText.setVisibility(View.INVISIBLE);
+
         db = new DBHelper(this);
         retrieveMovieData();
     }
 
     public void retrieveMovieData() {
         Cursor data = db.getData();
+
+
 
         // Iterate over all records and add the movie name to the ArrayList 'sortedMovies'
         while(data.moveToNext()) {
@@ -58,6 +68,13 @@ public class DisplayMovies extends AppCompatActivity {
                 listView.setItemChecked(i, false);
             }
         }
+
+        if (data.getCount() == 0) {
+            imageView.setVisibility(View.VISIBLE);
+            helperText.setVisibility(View.VISIBLE);
+            listView.setVisibility(View.INVISIBLE);
+        }
+
     }
 
 

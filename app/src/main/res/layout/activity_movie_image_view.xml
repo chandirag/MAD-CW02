@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="TextView"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

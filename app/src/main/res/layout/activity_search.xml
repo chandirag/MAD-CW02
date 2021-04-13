@@ -27,13 +27,15 @@
             android:layout_weight="0.9"
             app:hintEnabled="false"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="-5dp"
+            android:layout_marginEnd="-15dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtInputEditTextSearch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Search..."
+                android:hint="@string/searchInputHint"
                 android:inputType="text"
                 android:maxLines="1"
                 android:scaleX="0.9"
@@ -50,7 +52,9 @@
             app:icon="@drawable/ic_baseline_search_24"
             app:iconGravity="textStart"
             app:iconPadding="0dp"
-            android:onClick="handleSearchMovie"/>
+            android:onClick="handleSearchMovie"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp" />
     </LinearLayout>
 
 
@@ -63,7 +67,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Results with [query] in the title:"
+        android:text="@string/titleSectionHeaderPlaceholderText"
         android:layout_marginBottom="5dp"
         android:textColor="@color/secondaryDarkColor"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +102,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Results with [query] matching the 'Director' field:"
+        android:text="@string/directorSectionHeaderPlaceholderText"
         android:textColor="@color/secondaryDarkColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linearLayout1"
@@ -131,7 +135,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Results with [query] matching the 'Director' field:"
+        android:text="@string/castSectionHeaderPlaceholderText"
         android:textColor="@color/secondaryDarkColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linearLayout2"
@@ -154,12 +158,5 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </LinearLayout>
-
-
-
-
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

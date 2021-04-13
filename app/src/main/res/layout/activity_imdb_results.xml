@@ -14,7 +14,7 @@
         android:layout_marginLeft="24dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="Movie Title"
+        android:text="@string/imdbResultsMovieTitleColumnTag"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_semibold"
-        android:text="Loading..."
+        android:text="@string/loadingText"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

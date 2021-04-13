@@ -18,7 +18,7 @@
         android:paddingTop="5dp"
         android:paddingRight="20dp"
         android:paddingBottom="5dp"
-        android:text="Register Movie"
+        android:text="@string/registerMovieButtonText"
         android:textAllCaps="false"
         android:textColor="@color/secondaryTextColor"
         android:textSize="14sp"
@@ -38,7 +38,7 @@
         android:paddingTop="5dp"
         android:paddingRight="15dp"
         android:paddingBottom="5dp"
-        android:text="Display Movies"
+        android:text="@string/displayMoviesButtonText"
         android:textAllCaps="false"
         android:textColor="@color/secondaryTextColor"
         android:textSize="14sp"
@@ -58,7 +58,7 @@
         android:paddingTop="5dp"
         android:paddingRight="15dp"
         android:paddingBottom="5dp"
-        android:text="Favourites"
+        android:text="@string/favouritesButtonText"
         android:textAllCaps="false"
         android:textColor="@color/secondaryTextColor"
         android:textSize="14sp"
@@ -78,7 +78,7 @@
         android:paddingTop="5dp"
         android:paddingRight="15dp"
         android:paddingBottom="5dp"
-        android:text="Edit Movies"
+        android:text="@string/editMoviesButtonText"
         android:textAllCaps="false"
         android:textColor="@color/secondaryTextColor"
         android:textSize="14sp"
@@ -98,7 +98,7 @@
         android:paddingTop="5dp"
         android:paddingRight="15dp"
         android:paddingBottom="5dp"
-        android:text="Search"
+        android:text="@string/searchButtonText"
         android:textAllCaps="false"
         android:textColor="@color/secondaryTextColor"
         android:textSize="14sp"
@@ -120,7 +120,7 @@
         android:paddingTop="5dp"
         android:paddingRight="15dp"
         android:paddingBottom="5dp"
-        android:text="Ratings"
+        android:text="@string/ratingsButtonText"
         android:textAllCaps="false"
         android:textColor="@color/secondaryTextColor"
         android:textSize="14sp"
@@ -140,6 +140,7 @@
         app:srcCompat="@drawable/logo" />
 
 
+    <!-- ImageViews for Movie Posters -->
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/shapeableImageView"
         android:layout_width="140dp"

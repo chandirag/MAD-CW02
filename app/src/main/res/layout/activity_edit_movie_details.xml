@@ -17,7 +17,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:onClick="handleUpdate"
-        android:text="Update Movie"
+        android:text="@string/update_movie"
         android:textColor="@color/primaryTextColor"
         app:backgroundTint="@color/primaryColor"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:hint="Movie Title">
+            android:hint="@string/inputMovieTitle">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtInputEditTextMovieTitle_EditMovieDetails"
@@ -64,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:hint="Year Released">
+            android:hint="@string/inputYearReleased">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtInputEditTextYearReleased_EditMovieDetails"
@@ -83,7 +83,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:hint="Director">
+            android:hint="@string/inputDirector">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtInputEditTextDirector_EditMovieDetails"
@@ -100,7 +100,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:hint="Cast">
+            android:hint="@string/inputCast">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtInputEditTextCast_EditMovieDetails"
@@ -121,7 +121,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:hint="Review">
+            android:hint="@string/inputReview">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtInputEditTextReview_EditMovieDetails"
@@ -141,9 +141,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:fontFamily="@font/roboto"
-            android:text="Rating:"
+            android:text="@string/inputRatingLabel"
             android:textColor="#5b5b5b"
-            android:textSize="14sp">
+            android:textSize="14sp"
+            android:layout_marginStart="10dp">
         </TextView>
         <RatingBar
             android:id="@+id/ratingBar"
@@ -174,10 +175,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/roboto"
-                android:text="Favourite:"
+                android:text="@string/inputFavouriteLabel"
                 android:textColor="#5b5b5b"
                 android:textSize="14sp"
-                android:layout_weight="0.9">
+                android:layout_weight="0.9"
+                android:layout_marginStart="10dp">
             </TextView>
 
 
@@ -187,9 +189,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.1"
                 android:checked="false"
-                android:layout_marginRight="-40dp"/>
-
-
+                android:layout_marginRight="-40dp"
+                android:layout_marginEnd="-40dp" />
         </LinearLayout>
     </LinearLayout>
 

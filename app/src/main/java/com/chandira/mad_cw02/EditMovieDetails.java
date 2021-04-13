@@ -1,23 +1,18 @@
 package com.chandira.mad_cw02;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SwitchCompat;
-
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.RatingBar;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Calendar;
-import java.util.Collections;
 
 public class EditMovieDetails extends AppCompatActivity {
     TextInputLayout movieTitleTextInput, movieDirectorTextInput, movieCastTextInput, movieReviewTextInput;
@@ -44,20 +39,25 @@ public class EditMovieDetails extends AppCompatActivity {
         ratingBar = findViewById(R.id.ratingBar);
         isFavouriteCheckBox = findViewById(R.id.isFavouriteCheckBox);
 
-        // Title
+        // Initializing Material Input Field for: Title
         movieTitleTextInput = findViewById(R.id.txtInputLayoutMovieTitle_EditMovieDetails);
         movieTitleTextInput.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { movieTitle = s.toString(); }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                movieTitle = s.toString();
+            }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
             @Override
-            public void afterTextChanged(Editable s) { movieTitle = s.toString(); }
+            public void afterTextChanged(Editable s) {
+                movieTitle = s.toString();
+            }
         });
 
-        // Year Released
+        // Initializing Material Input Field for: Year Released
         movieYearReleasedTextInput = findViewById(R.id.txtInputLayoutYearReleased_EditMovieDetails);
         movieYearReleasedTextInput.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
@@ -66,7 +66,8 @@ public class EditMovieDetails extends AppCompatActivity {
             }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -74,7 +75,7 @@ public class EditMovieDetails extends AppCompatActivity {
             }
         });
 
-        // Director
+        // Initializing Material Input Field for: Director
         movieDirectorTextInput = findViewById(R.id.txtInputLayoutDirector_EditMovieDetails);
         movieDirectorTextInput.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
@@ -83,26 +84,33 @@ public class EditMovieDetails extends AppCompatActivity {
             }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
             @Override
-            public void afterTextChanged(Editable s) { director = s.toString(); }
+            public void afterTextChanged(Editable s) {
+                director = s.toString();
+            }
         });
 
-        // Cast
+        // Initializing Material Input Field for: Cast
         movieCastTextInput = findViewById(R.id.txtInputLayoutCast_EditMovieDetails);
         movieCastTextInput.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
             @Override
-            public void afterTextChanged(Editable s) { cast = s.toString(); }
+            public void afterTextChanged(Editable s) {
+                cast = s.toString();
+            }
         });
 
-        // Review
+        // Initializing Material Input Field for: Review
         movieReviewTextInput = findViewById(R.id.txtInputLayoutReview_EditMovieDetails);
         movieReviewTextInput.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
@@ -111,7 +119,8 @@ public class EditMovieDetails extends AppCompatActivity {
             }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -123,6 +132,7 @@ public class EditMovieDetails extends AppCompatActivity {
     }
 
 
+    
     public void retrieveMovieData(String title) {
         Cursor data = db.getRecordWithTitle(title);
 
@@ -149,6 +159,7 @@ public class EditMovieDetails extends AppCompatActivity {
         }
     }
 
+    // OnClick Handler for 'Update Movie' button
     public void handleUpdate(View view) {
         if (isValid()) {
             int ratingInt = (int) ratingBar.getRating();
@@ -163,6 +174,7 @@ public class EditMovieDetails extends AppCompatActivity {
         }
     }
 
+    // Input Validation
     private boolean isValid() {
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         boolean isTitleValid, isYearValid = true;
@@ -175,7 +187,7 @@ public class EditMovieDetails extends AppCompatActivity {
             isTitleValid = true;
         }
 
-        if(movieYearReleasedTextInput.getEditText().getText().toString().isEmpty()) {
+        if (movieYearReleasedTextInput.getEditText().getText().toString().isEmpty()) {
             movieYearReleasedTextInput.setError("Year released is required.");
             isYearValid = false;
         } else if (Integer.parseInt(movieYearReleasedTextInput.getEditText().getText().toString()) < MIN_YEAR) {

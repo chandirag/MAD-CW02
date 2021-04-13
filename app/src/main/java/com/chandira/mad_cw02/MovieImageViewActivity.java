@@ -1,14 +1,12 @@
 package com.chandira.mad_cw02;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MovieImageViewActivity extends AppCompatActivity {
     String movieTitle;
@@ -39,7 +37,7 @@ public class MovieImageViewActivity extends AppCompatActivity {
             imageLoader = (ImageLoader) new ImageLoader(imageView).execute(movieImageUrl);
         else {
             imageView.setVisibility(View.INVISIBLE);
-            title.setText("Image does not exist!");
+            title.setText(R.string.imageNotExistString);
         }
 
     }
@@ -47,10 +45,10 @@ public class MovieImageViewActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()) {
+        switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
-                return true; //this does the trick
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

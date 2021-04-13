@@ -14,7 +14,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="Enter the details of the movie you want to register."
+        android:text="@string/registerMovieInstruction"
         android:textColor="@color/secondaryTextColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:hint="Movie Title">
+            android:hint="@string/inputMovieTitle">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtInputEditTextSearch"
@@ -59,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:hint="Year Released">
+            android:hint="@string/inputYearReleased">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtInputEditTextYearReleased"
@@ -78,7 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:hint="Director">
+            android:hint="@string/inputDirector">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtInputEditTextDirector"
@@ -95,7 +95,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:hint="Cast">
+            android:hint="@string/inputCast">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtInputEditTextCast"
@@ -115,7 +115,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:hint="Rating">
+            android:hint="@string/inputRatingLabel">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtInputEditTextRating"
@@ -133,7 +133,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:hint="Review">
+            android:hint="@string/inputReview">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtInputEditTextReview"
@@ -152,12 +152,12 @@
         android:id="@+id/extended_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
+        android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:contentDescription="Adds movie to database"
-        android:text="ADD MOVIE"
+        android:contentDescription="@string/registerMovieFabDescription"
+        android:text="@string/registerMovieFabText"
         app:icon="@drawable/ic_plus_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
