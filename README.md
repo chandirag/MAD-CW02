@@ -1,5 +1,5 @@
 # MAD-CW02: Trakt (Movie Tracker)
-This repo contains files for the project that was completed for Coursework 02 of the Mobile Application Development Module
+This repo contains files for the project that was completed for **Coursework 02 of the Mobile Application Development** Module
 in the 2nd year at IIT. The application allows the user to:
   1. Add details of watched movies
   2. Save watched movies as favourites
