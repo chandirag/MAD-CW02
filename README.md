@@ -12,12 +12,13 @@ SQLite was used for storage. UI was implemented using Material Design by Google.
 
 ## Screenshots
 <p float="left">
-  <img src="screenshots/1.png" height="400" />
-  <img src="screenshots/4.png" height="400" /> 
-  <img src="screenshots/3.png" height="400" />
-  <img src="screenshots/5.png" height="400" /> 
-  <img src="screenshots/8.png" height="400" />
-  <img src="screenshots/9.png" height="400" />
-  <img src="screenshots/11.png" height="400" />
-  <img src="screenshots/12.png" height="400" />
+  <img src="screenshots/1.png" height="500" />
+  <img src="screenshots/4.png" height="500" /> 
+  <img src="screenshots/3.png" height="500" />
+  <img src="screenshots/5.png" height="500" /> 
+  <img src="screenshots/8.png" height="500" />
+  <img src="screenshots/9.png" height="500" />
+  <img src="screenshots/10.png" height="500" />
+  <img src="screenshots/11.png" height="500" />
+  <img src="screenshots/12.png" height="500" />
 </p>
